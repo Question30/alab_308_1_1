@@ -65,3 +65,15 @@ const isFirstGreaterThanLastNum = n1 > n4;
 console.log(
   `Is the first number greater than the last number? : ${isFirstGreaterThanLastNum}`
 );
+
+/**
+ * Accomplish the following arithmetic chain:
+Subtract the first number from the second number.
+Multiply the result by the third number.
+Find the remainder of dividing the result by the fourth number.
+ */
+
+const chainResult = ((n2 - n1) * n3) % n4;
+console.log(
+  `The Result of ((${n2} - ${n1}) * ${n3}) % ${n4} is : ${chainResult}`
+);
