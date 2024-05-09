@@ -85,3 +85,54 @@ const chainResult = ((n2 - n1) * n3) % n4;
 console.log(
   `The Result of ((${n2} - ${n1}) * ${n3}) % ${n4} is : ${chainResult}`
 );
+
+//Part Two
+
+const tripTotalMiles = 1500;
+const fuelBudget = 175;
+//Average cost of fuel per gallon
+const costOfFuel = 3;
+
+//How many gallons of fuel will you need for the entire trip?
+//Trip 1 you get 30 miles per gallon
+const trip1Gallons = tripTotalMiles / 30;
+//Trip 2 you get 28 miles per gallon
+const trip2Gallons = tripTotalMiles / 28;
+//Trip 3 you get 23 miles per gallon
+const trip3Gallons = tripTotalMiles / 23;
+
+//Total cost of fuel for trip
+const trip1Cost = trip1Gallons * costOfFuel;
+const trip2Cost = trip2Gallons * costOfFuel;
+const trip3Cost = trip3Gallons * costOfFuel;
+
+//Will your budget be enough to cover the fuel expense?
+const isTrip1InBudget = trip1Cost < fuelBudget;
+const isTrip2InBudget = trip2Cost < fuelBudget;
+const isTrip3InBudget = trip3Cost < fuelBudget;
+
+//How long will the trip take, in hours?
+const trip1Duration = tripTotalMiles / 55;
+const trip2Duration = tripTotalMiles / 60;
+const trip3Duration = tripTotalMiles / 75;
+
+//Check which trip is cheaper
+const trip1 = trip1Cost < trip2Cost && trip1Cost < trip3Cost;
+const trip2 = trip2Cost < trip1Cost && trip1Cost < trip3Cost;
+const trip3 = trip3Cost < trip1Cost && trip1Cost < trip2Cost;
+
+//Logged all trip durations gallons needed, and if its within the budget
+console.log(
+  `Trip 1 at 55mph will take ${trip1Duration}hrs, you will need ${trip1Gallons} gallons, this is within the budget: ${isTrip1InBudget}`
+);
+console.log(
+  `Trip 2 at 60mph will take ${trip2Duration}hrs, you will need ${trip2Gallons} gallons, this is within the budget: ${isTrip2InBudget}`
+);
+console.log(
+  `Trip 3 at 75mph will take ${trip3Duration}hrs, you will need ${trip3Gallons} gallons, this is within the budget: ${isTrip3InBudget}`
+);
+
+//Log all compared trips
+console.log(
+  `Which trip is the most efficient? Trip1: ${trip1}, Trip2: ${trip2}, Trip3: ${trip3}`
+);
