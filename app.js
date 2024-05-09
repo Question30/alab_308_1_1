@@ -11,6 +11,8 @@ const n4 = 5;
 // arithmetic operators and a comparison.
 const isSum50 = n1 + n2 + n3 + n4 == 50;
 
+console.log(isSum50);
+
 // Check two: at least two odd numbers
 // Here, we use modulus to check if something is odd.
 // Since % 2 is 0 if even and 1 if odd, we can use
@@ -52,3 +54,8 @@ const dontDoThis =
   n2 != n3 &&
   n2 != n4 &&
   n3 != n4;
+
+//Check if all numbers are divisible by 5. Cache the result in a variable.
+const isDivisibleByFive =
+  n1 % 5 === 0 && n2 % 5 === 0 && n3 % 5 === 0 && n4 % 5 === 0;
+console.log(`Are all four numbers divisible by 5? : ${isDivisibleByFive}`);
