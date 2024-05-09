@@ -59,3 +59,9 @@ const dontDoThis =
 const isDivisibleByFive =
   n1 % 5 === 0 && n2 % 5 === 0 && n3 % 5 === 0 && n4 % 5 === 0;
 console.log(`Are all four numbers divisible by 5? : ${isDivisibleByFive}`);
+
+//Check if the first number is larger than the last. Cache the result in a variable.
+const isFirstGreaterThanLastNum = n1 > n4;
+console.log(
+  `Is the first number greater than the last number? : ${isFirstGreaterThanLastNum}`
+);
