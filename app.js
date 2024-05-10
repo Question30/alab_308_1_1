@@ -90,49 +90,45 @@ console.log(
 
 const tripTotalMiles = 1500;
 const fuelBudget = 175;
-//Average cost of fuel per gallon
 const costOfFuel = 3;
 
-//How many gallons of fuel will you need for the entire trip?
-//Trip 1 you get 30 miles per gallon
-const trip1Gallons = tripTotalMiles / 30;
-//Trip 2 you get 28 miles per gallon
-const trip2Gallons = tripTotalMiles / 28;
-//Trip 3 you get 23 miles per gallon
-const trip3Gallons = tripTotalMiles / 23;
+//Function
+function calcTrip(tripNum, milesPerGallon, milesPerHour) {
+  //Cost of Fuel for the trip
+  const costOfTrip = (tripTotalMiles / milesPerGallon) * costOfFuel;
+  //Is it in the budget
+  const isTripInBudget = costOfTrip < fuelBudget;
+  //Duration of the trip
+  const duration = tripTotalMiles / milesPerHour;
 
-//Total cost of fuel for trip
-const trip1Cost = trip1Gallons * costOfFuel;
-const trip2Cost = trip2Gallons * costOfFuel;
-const trip3Cost = trip3Gallons * costOfFuel;
+  console.log(
+    `Trip ${tripNum} at ${milesPerHour} will take ${duration}hrs. Is this trip within the budget? : ${isTripInBudget}`
+  );
 
-//Will your budget be enough to cover the fuel expense?
-const isTrip1InBudget = trip1Cost < fuelBudget;
-const isTrip2InBudget = trip2Cost < fuelBudget;
-const isTrip3InBudget = trip3Cost < fuelBudget;
+  return costOfTrip;
+}
 
-//How long will the trip take, in hours?
-const trip1Duration = tripTotalMiles / 55;
-const trip2Duration = tripTotalMiles / 60;
-const trip3Duration = tripTotalMiles / 75;
+calcTrip(1, 30, 55);
+calcTrip(2, 28, 60);
+calcTrip(3, 23, 75);
 
-//Check which trip is cheaper
-const trip1 = trip1Cost < trip2Cost && trip1Cost < trip3Cost;
-const trip2 = trip2Cost < trip1Cost && trip1Cost < trip3Cost;
-const trip3 = trip3Cost < trip1Cost && trip1Cost < trip2Cost;
+function mostEfficent(num1, num2, num3) {
+  let answer = num1;
 
-//Logged all trip durations gallons needed, and if its within the budget
+  if (num2 < answer) {
+    answer = num2;
+  }
+
+  if (num3 < answer) {
+    answer = num3;
+  }
+  return answer;
+}
+
 console.log(
-  `Trip 1 at 55mph will take ${trip1Duration}hrs, you will need ${trip1Gallons} gallons, this is within the budget: ${isTrip1InBudget}`
-);
-console.log(
-  `Trip 2 at 60mph will take ${trip2Duration}hrs, you will need ${trip2Gallons} gallons, this is within the budget: ${isTrip2InBudget}`
-);
-console.log(
-  `Trip 3 at 75mph will take ${trip3Duration}hrs, you will need ${trip3Gallons} gallons, this is within the budget: ${isTrip3InBudget}`
-);
-
-//Log all compared trips
-console.log(
-  `Which trip is the most efficient? Trip1: ${trip1}, Trip2: ${trip2}, Trip3: ${trip3}`
+  `the most efficient trip will cost ${mostEfficent(
+    calcTrip(1, 30, 55),
+    calcTrip(2, 28, 60),
+    calcTrip(3, 23, 75)
+  )} and is Trip number one`
 );
